@@ -24,8 +24,8 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   100
 );
-camera.position.z = 5;
-camera.position.y = 1;
+camera.position.z = 0;
+camera.position.y = 4;
 
 /*------------------------------
 Mesh
@@ -42,23 +42,23 @@ const cube = new THREE.Mesh( geometry, material );
 OrbitControls
 ------------------------------*/
 const controls = new OrbitControls( camera, renderer.domElement );
-// controls.enabled = false
+controls.enabled = false
 
 /*------------------------------
 MouseMove
 ------------------------------*/
-/*function onMouseMove(e) {
+function onMouseMove(e) {
   console.log(e)
   const x = e.clientX
   const y = e.clientY
 
   gsap.to(scene.rotation, {
-    y: gsap.utils.mapRange(0, window.innerWidth, .2, -.2, x),
-    e: gsap.utils.mapRange(0, window.innerWidth, .2, -.2, y)
+    y: gsap.utils.mapRange(0, window.innerWidth, .10, -.2, y),
+    x: gsap.utils.mapRange(0, window.innerWidth, .10, -.2, x)
   })
 }
 window.addEventListener('mousemove', onMouseMove)
-*/
+
 
 /*------------------------------
 Models
@@ -67,18 +67,18 @@ const letterA = new Model({
   name: 'letterA',
   file: './models/letter_a.glb',
   scene: scene,
-  color1: 'red',
-  color2: 'yellow',
-  background: '#47001b',
+  color1: '#f72585',
+  color2: 'black',
+  background: '#4c96f7',
   placeOnLoad: true
 })
 
 const letterB = new Model({
   name: 'letterB',
   file: './models/letter_b.glb',
-  color1: 'blue',
-  color2: 'pink',
-  background: '#110047',
+  color1: '#ffd6e0',
+  color2: '#450920',
+  background: '#1985a1',
   scene: scene  
 })
 
